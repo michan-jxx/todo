@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function folders()
+    {
+        return $this->hasMany('App\Models\Folder');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,7 +35,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        // 'remember_token',
     ];
 
     /**
